@@ -4,7 +4,7 @@ app.config(['$routeProvider',
   function($routeProvider){
     $routeProvider
     .when('/', {
-      controller :'controler'
+      controller :'controleur'
     })
     .otherwise({
         redirectTo: '/'

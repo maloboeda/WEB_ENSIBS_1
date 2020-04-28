@@ -9,13 +9,18 @@
   <script src="node_modules\angular\angular.js"></script>
   <script src="node_modules\angular-route\angular-route.js"></script>
   <script src="js\app.js"></script>
-  <script src="js\controllers\controler.js"></script>
+  <script src="js\controllers\controleur.js"></script>
 
 
 </head><!--/head-->
 
-<body>
+<body ng-app='rennesData' ng-controller='controleur'>
 
+  <div ng-repeat='data in dataPrint'>
+    <div>
+      <span>{{data.nom_circonscription}}</span>
+    </div>
+  </div>
 
 </body>
 </html>
