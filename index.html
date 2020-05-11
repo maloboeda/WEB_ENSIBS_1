@@ -10,19 +10,30 @@
   <script src="node_modules\angular-route\angular-route.js"></script>
   <script src="js\app.js"></script>
   <script src="js\controllers\controleur.js"></script>
+  <script type="text/javascript">
+    setTimeout(function(){document.getElementById("button").click(); }, 300);
+  </script>
+</head>
 
+<body ng-app='rennesData' ng-controller='controleur' ng-init='loadData()'>
 
-</head><!--/head-->
+  <header>
 
-<body ng-app='rennesData' ng-controller='controleur'>
+  </header>
 
-  <button ng-click='loadData()'>test</button>
-
-  <div ng-repeat='data in dataPrint'>
-    <div>
-      <p>{{data.nom_circonscription}}</p>
-    </div>
+  <div ng-repeat='data in circonscriptions'>
+    <a href="" ng-click='loadVille(data)'>{{data}}</a>
   </div>
+
+  <div ng-repeat='data in lieux'>
+    <a href="" ng-click='loadLieu(data)'>{{data}}</a>
+  </div>
+
+  <div id='maVille' ng-repeat='cand in candidats'>
+    <p>{{dataLieu[cand[0]]}} : {{dataLieu[cand[1]]}}% - {{dataLieu[cand[2]]}} voix</p>
+  </div>
+
+  <a id='button' type='hidden' ng-click='loadData()' autofocus></a>
 
 </body>
 
