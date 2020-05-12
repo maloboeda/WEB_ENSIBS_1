@@ -1,6 +1,5 @@
 var rennesData = angular.module("rennesData", []);
 
-
 rennesData.controller("controleur", ['$scope',
     function($scope) {
       $scope.dataPrint = [];
@@ -8,6 +7,8 @@ rennesData.controller("controleur", ['$scope',
       $scope.circonscriptions = [];
       $scope.candidats = [];
       $scope.lieux = [];
+      $scope.visible1 = true;
+      $scope.visible2 = true;
 
       var requestURL = "https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=resultats_c11";
 
@@ -54,6 +55,9 @@ rennesData.controller("controleur", ['$scope',
       }
 
       $scope.loadVille = function (nom){
+        $scope.visible1 = false;
+        $scope.visible2 = true;
+        console.log($scope.visible);
         $scope.lieux = [];
         $scope.candidats = [];
         let test = false;
@@ -69,11 +73,11 @@ rennesData.controller("controleur", ['$scope',
           }
           test = false;
         }
-        console.log($scope.lieux);
       }
 
       function loadCandidats(){
         $scope.candidats = [];
+        $scope.visible2 = false;
         regex1 = /candidat_\d/gm ;
         let cand, nbvoix, pourcentage,indice;
         for(const obj in $scope.dataLieu){
@@ -94,4 +98,5 @@ rennesData.controller("controleur", ['$scope',
         $scope.candidats.sort();
       }
     }
+
 ]);
