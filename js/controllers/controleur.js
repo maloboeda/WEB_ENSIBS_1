@@ -12,6 +12,7 @@ rennesData.controller("controleur", ['$scope',
 
       $scope.labels = [];
       $scope.data = [];
+      $scope.options = [ '#803690', '#00ADF9'];
 
       var requestURL = "https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=resultats_c11";
 
