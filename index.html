@@ -35,7 +35,7 @@
                     <ul class="nav navbar-nav barre">
                         <li class="barre"><a href="#top"><i class="icon-home"></i></a></li>
                         <li class="barre" ng-repeat='data in circonscriptions'><a href="#{{data}}" ng-click='loadVille(data)'>{{data}}</a></li>
-                        <li class="barre"><a href="#about-us">About Us</a></li>
+                        <li class="barre"><a href="#about-us">Qui sommes nous?</a></li>
                         <li class="barre"><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -47,6 +47,7 @@
         <div class="container">
             <div class="box">
                 <div class="center gap">
+                    <img id="logo" class="img-responsive" src="images/logo.png" alt="">
                     <h2>Élections Cantonnales Rennes 2011</h2>
                     <p class="lead">Cliquez sur la circonscription de votre choix afin de voir les résultats.</p>
                 </div><!--/.center-->
@@ -75,6 +76,9 @@
 
         <div class="container">
             <div class="box">
+              <canvas id="pie" class="chart chart-pie"
+                chart-data="data" chart-labels="labels">
+              </canvas>
                 <div class="row">
                     <div class="col-md-4 col-sm-6" ng-repeat='cand in candidats'>
                         <div class="center">
@@ -82,9 +86,6 @@
                         </div>
                     </div><!--/.col-md-4-->
                 </div><!--/.row-->
-                <canvas id="pie" class="chart chart-pie"
-                  chart-data="data" chart-labels="labels">
-                </canvas>
             </div><!--/.box-->
         </div><!--/.container-->
     </section><!--/#services-->
@@ -126,19 +127,19 @@
             <div class="box last">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1>Contact Form</h1>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                        <h1>Formulaire de contact</h1>
+                        <p>Veuillez-nous contacter à l'aide de ce formulaire.</p>
                         <div class="status alert alert-success" style="display: none"></div>
                         <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" required="required" placeholder="Name">
+                                        <input type="text" class="form-control" required="required" placeholder="Nom">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" required="required" placeholder="Email address">
+                                        <input type="text" class="form-control" required="required" placeholder="Adresse mail">
                                     </div>
                                 </div>
                             </div>
@@ -148,32 +149,11 @@
                                         <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Message"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-danger btn-lg">Send Message</button>
+                                        <button type="submit" class="btn btn-danger btn-lg">Envoyer message</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
-                    </div><!--/.col-sm-6-->
-                    <div class="col-sm-6">
-                        <h1>Our Address</h1>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <address>
-                                    <strong>Twitter, Inc.</strong><br>
-                                    795 Folsom Ave, Suite 600<br>
-                                    San Francisco, CA 94107<br>
-                                    <abbr title="Phone">P:</abbr> (123) 456-7890
-                                </address>
-                            </div>
-                            <div class="col-md-6">
-                                <address>
-                                    <strong>Twitter, Inc.</strong><br>
-                                    795 Folsom Ave, Suite 600<br>
-                                    San Francisco, CA 94107<br>
-                                    <abbr title="Phone">P:</abbr> (123) 456-7890
-                                </address>
-                            </div>
-                        </div>
                     </div><!--/.col-sm-6-->
                 </div><!--/.row-->
             </div><!--/.box-->
@@ -184,7 +164,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; Made by BOËDA Malo & SOMMER Clément - ENSIBS 2020
+                    &copy; Site réalisé par BOËDA Malo & SOMMER Clément - ENSIBS 2020
                 </div>
             </div>
         </div>

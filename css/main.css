@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
 
+
 .ok{
   display: none !important;
 }
@@ -14,10 +15,25 @@
   margin-bottom: 30px;
 }
 
-body {
-  background: #e5e5e5;
-  color: #999;
+#pie{
+  margin-bottom: 30px;
 }
+
+#logo{
+  margin: auto;
+}
+
+html{
+}
+
+body {
+  color: #999;
+  background: url("../images/rennes.jpg") no-repeat center fixed;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  box-shadow: 0 0 0 5000px rgba(0,0,0,0.6) inset;
+}
+
 h1,
 h2,
 h3,
