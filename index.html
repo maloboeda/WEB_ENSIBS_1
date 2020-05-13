@@ -82,6 +82,9 @@
                         </div>
                     </div><!--/.col-md-4-->
                 </div><!--/.row-->
+                <canvas id="pie" class="chart chart-pie"
+                  chart-data="data" chart-labels="labels">
+                </canvas>
             </div><!--/.box-->
         </div><!--/.container-->
     </section><!--/#services-->
@@ -189,6 +192,7 @@
 
     <a id='button' type='hidden' ng-click='loadData()' autofocus></a>
 
+
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
@@ -198,11 +202,11 @@
     <script src="node_modules\angular-route\angular-route.js"></script>
     <script src="js\app.js"></script>
     <script src="js\controllers\controleur.js"></script>
+    <script src="node_modules\chart.js\dist\Chart.min.js"></script>
+    <script src="node_modules\angular-chart.js\dist\angular-chart.min.js"></script>
     <script type="text/javascript">
       setTimeout(function(){document.getElementById("button").click(); }, 400);
     </script>
-
-
 
 </body>
 </html>
