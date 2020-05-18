@@ -18,6 +18,7 @@ rennesData.controller("controleur", ['$scope',
       $scope.labels = [];
       $scope.data = [];
       $scope.options = [ '#803690', '#00ADF9'];
+      $scope.data;
 
       /** Chargement et ouverture de l'URL de notre API (élections cantonales de Rennes en 2011) **/
       var requestURL = "https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=resultats_c11";
@@ -30,18 +31,20 @@ rennesData.controller("controleur", ['$scope',
       /** On parse notre url au chargement de l'API **/
       request.onload = function() {
         var data = request.response;
-        loadData(JSON.parse(data));
+        $scope.data = JSON.parse(data);
+        loadData();
       }
 
-      function loadData(data){
-        for (i = 0; i < data.records.length; i++){
-          $scope.dataPrint.push(data.records[i].fields);
+      /** Fonction qui va charger toutes les données de notre API et mettre à jour les circonscriptions **/
+      function loadData(){
+        for (i = 0; i < $scope.data.records.length; i++){
+          $scope.dataPrint.push($scope.data.records[i].fields);
         }
         loadCirconsciption();
       }
 
       /** Fonction loadLieu qui chargera toutes les informations du lieu passé en paramètre **/
-      $scope.loadLieu= function (lieu){
+      $scope.loadLieu = function (lieu){
         for (i = 0; i < $scope.dataPrint.length; i++){
           if($scope.dataPrint[i].nom_lieu == lieu){
             $scope.dataLieu = $scope.dataPrint[i];
@@ -69,6 +72,7 @@ rennesData.controller("controleur", ['$scope',
           }
           test = false; // On remet à faux pour le prochain tour de boucle
         }
+        $scope.circonscriptions.sort();
       }
 
       /** Fonction loadVille qui charge tous les lieux d'une circonscription dans le tableau des lieux **/
@@ -131,7 +135,6 @@ rennesData.controller("controleur", ['$scope',
           }
         }
         $scope.candidats.sort();
-        console.log($scope.data);
       }
     }
 ]);
